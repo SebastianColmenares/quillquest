@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body
+{
+    /*@apply bg-gradient-to-r from-amber-600 from-10% via-amber-400 via-30% to-teal-400 to-90%;
+    /* background: rgb(124,98,83);
+    /* background: linear-gradient(90deg, rgba(124,98,83,1) 0%, rgba(218,180,141,1) 38%, rgba(108,118,110,1) 73%, rgba(60,80,81,1) 100%); */
+    background: #d7e2e9ff;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    
+
+    font-family: Cormorant;
+}
+/*bg-gradient-to-br from-cyan-300 via-cyan-100  to-cyan-500 text-white px-4 py-2 focus:ring gradient element-to-rotate;*/
+@layer utilities {
+    @keyframes gradientChange {
+        0% {
+            background-position: 0%
+        }
+
+        50% {
+            background-position: 100%
+        }
+
+        100% {
+            background-position: 0%
+        }
+    }
+
+    .gradient {
+        background-size: 200% 200%;
+    }
+
+    .element-to-rotate {
+        animation: gradientChange 7s ease-in infinite;
+    }
+}
+
+.textoReg
+{
+    font-weight: 800;
+    font-size: 2.25rem/* 36px */;
+    line-height: 2.5rem/* 40px */;
+    margin-bottom: 1.5rem/* 16px */;
+}

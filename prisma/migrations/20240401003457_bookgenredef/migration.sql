@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `book` MODIFY `genreId` INTEGER NOT NULL DEFAULT 1;
