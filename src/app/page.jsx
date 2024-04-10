@@ -40,7 +40,7 @@ async function HomePage() {
                     bg-[#cfe8fc] shadow-md shadow-[#8095bd] rounded-[12px] hover:shadow-inner hover:shadow-[#8095bd] hover:bg-[#b5d4ff] hover:translate-x-2 transition duration-500 cursor-pointer
                     relative overflow-hidden group'>
                       <Link href='/auth/registro'>
-                      <Image src={logoQQ} height={200} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
+                      <Image src={logoQQ} alt="Fondo" height={200} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                             <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                             <div className='relative'>
                               <p className='text-[16px]'>Descubre tu próxima historia</p>
@@ -53,7 +53,7 @@ async function HomePage() {
                       bg-[#cefff2] shadow-md shadow-[#b192ff] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
                         <Link href='/auth/registro'>
-                          <Image src={fondo1} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
+                          <Image src={fondo1} alt="Logo Quill Quest" className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
                             <p className='text-[16px]'>Registrate para publicar una historia</p>
@@ -66,7 +66,7 @@ async function HomePage() {
                   bg-[#fffee6] shadow-md shadow-[#b192ff] rounded-[12px] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
                         <Link href='/auth/ingreso'>
-                          <Image src={fondo3} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
+                          <Image src={fondo3} alt='Libros' className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
                           <p className='text-[16px]'>Entra a tu cuenta</p>
@@ -79,7 +79,7 @@ async function HomePage() {
                   bg-[#e6e9ff] shadow-md shadow-[#b192ff] rounded-[12px] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
                         <Link href='/biblioteca'>
-                          <Image src={fondo2} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
+                          <Image src={fondo2} alt='Libreria' className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
                           <p className='text-[16px]'>Navega por las historias de otros autores</p>
@@ -131,7 +131,7 @@ async function HomePage() {
                       bg-[#cefff2] shadow-md shadow-[#b192ff] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
                         <Link href='/nuevaEscritura'>
-                          <Image src={fondo1} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
+                          <Image src={fondo1} alt='Logo Quill Quest' className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
                             <p className='text-[16px]'>Escribe una nueva historia</p>
@@ -144,7 +144,7 @@ async function HomePage() {
                   bg-[#e6e9ff] shadow-md shadow-[#b192ff] rounded-[12px] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
                         <Link href='/biblioteca'>
-                          <Image src={fondo2} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
+                          <Image src={fondo2} alt='Libreria' className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
                           <p className='text-[16px]'>Navega por las historias de otros autores</p>
@@ -157,7 +157,7 @@ async function HomePage() {
                   bg-[#fffee6] shadow-md shadow-[#b192ff] rounded-[12px] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
                         <Link href='/client'>
-                          <Image src={fondo3} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
+                          <Image src={fondo3} alt='Libros' className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
                           <p className='text-[16px]'>Revisa tus cuentos</p>

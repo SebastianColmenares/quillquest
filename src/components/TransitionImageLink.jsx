@@ -15,6 +15,6 @@ export default function TransitionImageLink({href}) {
         }
     }
     return (
-        <Image className="cursor-pointer" onClick={handleClick} src={logoQQ} width={120}/>
+        <Image className="cursor-pointer" onClick={handleClick} src={logoQQ} alt="Quill Quest" width={120}/>
     )
 }
