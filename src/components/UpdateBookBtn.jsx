@@ -27,18 +27,18 @@ const [bookContent, setBookContent] = useState(initialContent);
     
 
     try {
-       const request = await fetch(`/api/book/${bookId}`, {
-        method: "PUT",
+       const response = await fetch(`/api/editBook/${bookId}`, {
+        method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ title: bookTitle, content: bookContent, description: bookDesc })
       })
       router.refresh()
   
-      if (!request.ok) {
-        throw new Error(`Error: ${request.status}`);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
       }
   
-      console.log('Success:', await request.json());
+      console.log('Success:', await response.json());
       
     } catch (error) {
       console.error('Fetch error:', error.message);
