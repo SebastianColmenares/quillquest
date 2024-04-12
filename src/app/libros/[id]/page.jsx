@@ -1,6 +1,6 @@
 import db from '@/libs/db';
 import DeleteBookBtn from '@/components/DeleteBookBtn';
-import UpdateBookBtn from '@/components/UpdateBookBtn';
+import ChangePublishedBtn from '@/components/ChangePublishedBtn';
 import { getCurrentUser } from '@/libs/session';
 
 export default async function BookDetailPage({params}) {
@@ -35,7 +35,20 @@ export default async function BookDetailPage({params}) {
             <div className="max-w-4xl mx-auto py-8">
                 <ul className='flex justify-end gap-10'>
                     <DeleteBookBtn bookId={books.id}/>
-                    <UpdateBookBtn bookId={books.id} initialTitle={books.title} initialContent={books.content} initialDesc={books.description}/>
+
+                    {!books?.published ? (
+                        <>
+                            <span className='text-lg bg-red-400 rounded-3xl p-3 '>No publicado</span>
+                            <ChangePublishedBtn bookId={books?.id} published={true} label={"Publicar"}/>
+                        </> ) :
+                    (
+                        <>
+                            <span className='text-lg bg-lime-400 rounded-3xl p-3'>Publicado</span>
+                            <ChangePublishedBtn bookId={books?.id} published={false} label={"Ocultar"}/>
+                        </>
+                    
+                    )}
+
                 </ul>
                 
                 <h1 id='bookTitle' contentEditable="true" oninput="handleTextChange(this.innerHTML)" className="text-3xl font-bold">{books?.title}</h1>
