@@ -3,6 +3,12 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import TransitionLink from './TransitionLink';
 import TransitionImageLink from './TransitionImageLink';
+import { Rubik_Mono_One } from "next/font/google";
+
+const rubik = Rubik_Mono_One({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 async function Navbar() {
   const session = await getServerSession(authOptions);
@@ -11,11 +17,13 @@ async function Navbar() {
     <>
       {!session?.user ? (
         <>
+        <div className={rubik.className}>
           <div className="font-black text-slate-100 items-center flex justify-between px-48 text-4xl border-b-2 border-t-2 mt-4">
             <span className="tracking-[4rem]">QUILL</span>
             <TransitionImageLink href="/"/>
             <span className="tracking-[4rem]">QUEST</span>
           </div>
+        </div>
           <div className="text-slate-200 gap-40 flex justify-center text-3xl border-b-2 border-t-2 mt-4">
             <span className="tracking-[1rem]">DESCUBRE</span>
             <span className="tracking-[1rem]">TU</span>
@@ -38,11 +46,13 @@ async function Navbar() {
         </>
         ) : (
         <>
-            <div className="font-black text-slate-100 items-center flex justify-between px-48 text-4xl border-b-2 border-t-2 mt-4">
-              <span className="tracking-[4rem]">QUILL</span>
-              <TransitionImageLink href="/"/>
-              <span className="tracking-[4rem]">QUEST</span>
-            </div>
+        <div className={rubik.className}>
+          <div className="font-black text-slate-100 items-center flex justify-between px-48 text-4xl border-b-2 border-t-2 mt-4">
+            <span className="tracking-[4rem]">QUILL</span>
+            <TransitionImageLink href="/"/>
+            <span className="tracking-[4rem]">QUEST</span>
+          </div>
+        </div>
             <div className="text-slate-200 gap-40 flex justify-center text-3xl border-b-2 border-t-2 mt-4">
               <span className="tracking-[1rem]">DESCUBRE</span>
               <span className="tracking-[1rem]">TU</span>

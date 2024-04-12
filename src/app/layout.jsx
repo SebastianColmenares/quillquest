@@ -1,11 +1,11 @@
 
 import TopNavbar from '@/components/TopNavbar';
-import { Cabin } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import NextAuthProvider from './NextAuthProvider';
 
-const cabin = Cabin({
-  weight: '500',
+const lato = Lato({
+  weight: '400',
   subsets: ['latin'],
 })
 
@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={cabin.className}>
+      <body className={lato.className}>
           <NextAuthProvider>
             <TopNavbar/>
               
