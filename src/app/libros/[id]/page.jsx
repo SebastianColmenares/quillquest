@@ -43,7 +43,7 @@ export default async function BookDetailPage({params}) {
                         </> ) :
                     (
                         <>
-                            <span className='text-lg bg-lime-400 rounded-3xl p-3'>Publicado</span>
+                            <span className='text-lg bg-lime-400 text-black font-black rounded-3xl p-3'>Publicado</span>
                             <ChangePublishedBtn bookId={books?.id} published={false} label={"Ocultar"}/>
                         </>
                     
