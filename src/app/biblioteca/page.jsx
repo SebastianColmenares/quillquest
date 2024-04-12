@@ -20,7 +20,7 @@ export default async function bibliotecaPage() {
   const books = await getBooks();
 
   return (
-    <div className='container max-w-4xl mx-auto py-8 text-black'>
+    <div className='container max-w-4xl mx-auto py-8'>
         <div className='text-4xl'>
           <h1>Biblioteca</h1>
         </div>

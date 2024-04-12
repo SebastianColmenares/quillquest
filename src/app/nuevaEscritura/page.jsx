@@ -53,13 +53,13 @@ export default function NuevaEscritura()
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto my-10">
+    <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-16">
       <div className="mb-5">
         <input type="text" id="title" value={title} onChange={handleTitleChange} 
-          className="mt-1 block w-full px-3 shadow-inner shadow-[#6d809aff] py-2 bg-[#e4eef4] border border-[#96a8c5ff] rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder='Titulo' />
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Titulo' />
       </div>
       <div className="mb-5">
-        <select className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-[#e4eef4] border rounded-md border-[#96a8c5ff] appearance-none  focus:outline-none focus:ring-0 focus:border-indigo-500 peer" onChange={handleGenreChange}>
+        <select className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md peer" onChange={handleGenreChange}>
           <option selected>--Selecciona un genero--</option>
           <option value="Ficcion">Ficcion</option>
           <option value="No-Ficticia">No-Ficticia</option>
@@ -72,11 +72,11 @@ export default function NuevaEscritura()
       </div>
       <div className="mb-5">
         <textarea value={description} onChange={handleDescriptionChange} rows="4"
-          className="mt-1 block w-full px-3 py-2 bg-[#e4eef4] border border-[#96a8c5ff] rounded-md shadow-inner shadow-[#6d809aff] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" resize='none' placeholder='Sinopsis'></textarea>
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" resize='none' placeholder='Sinopsis'></textarea>
       </div>
       <div className="mb-5">
         <textarea value={content} onChange={handleContentChange} rows="20"
-          className="mt-1 block w-full px-3 py-2 bg-[#e4eef4] border border-[#96a8c5ff] rounded-md shadow-inner shadow-[#6d809aff] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder='Escribe tu historia...'>  </textarea>
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Escribe tu historia...'>  </textarea>
       </div>
 
       <button type="submit" className="w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">

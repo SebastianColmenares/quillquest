@@ -2,7 +2,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { animatePageOut } from "@/utils/animations";
 import Image from "next/image";
-import logoQQ from "../../public/img/Logo_y_Letras.svg";
+import logoQQ from "../../public/img/QQLogo_blanco.svg";
 
 export default function TransitionImageLink({href}) {
     const router = useRouter();
@@ -15,6 +15,6 @@ export default function TransitionImageLink({href}) {
         }
     }
     return (
-        <Image className="cursor-pointer" onClick={handleClick} src={logoQQ} alt="Quill Quest" width={120}/>
+        <Image className="cursor-pointer" onClick={handleClick} src={logoQQ} alt="Quill Quest" width={20}/>
     )
 }

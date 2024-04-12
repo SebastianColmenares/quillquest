@@ -30,7 +30,7 @@ export default async function ClientPage()
    { 
         return(
             <>
-                <div className='container max-w-4xl mx-auto py-8 text-black'>
+                <div className='container max-w-4xl mx-auto py-8'>
                     <div className={fugaz.className}>
                     <h1 className='text-4xl'>Mis Libros</h1>
                     </div>

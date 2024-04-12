@@ -13,8 +13,8 @@ export default function TransitionLink({href, label}) {
         }
     }
     return (
-        <div className="cursor-pointer" onClick={handleClick}>
+        <p className="cursor-pointer" onClick={handleClick}>
             {label}
-        </div>
+        </p>
     )
 }
