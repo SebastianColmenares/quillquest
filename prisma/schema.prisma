@@ -42,6 +42,5 @@ model book {
 model genres {
   id Int @id @default(autoincrement())
   name String @unique @db.VarChar(255)
-  color String? @db.VarChar(80)
   books book[]
 }

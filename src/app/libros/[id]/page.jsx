@@ -56,7 +56,7 @@ export default async function BookDetailPage({params}) {
                 <span className='m-2 text-lg'>{books?.authorName} </span>
                 <span className='m-2 text-lg'>{books?.genreName} </span>
                 <span id='bookDescription' contentEditable="true" oninput="handleTextChange(this.innerHTML)" className='m-2 text-lg'>{books?.description} </span>
-                <div id='bookContent' contentEditable="true" oninput="handleTextChange(this.innerHTML)" className="mt-4 text-lg "> {books?.content} </div>
+                <div id='bookContent' contentEditable="true" oninput="handleTextChange(this.innerHTML)" className="mt-4 text-lg " dangerouslySetInnerHTML={{ __html: books?.content}}/>
             </div>
         )
     }

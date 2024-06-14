@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import TipTap from '@/components/TipTap';
 
 export default function NuevaEscritura()
 {
@@ -19,8 +20,8 @@ export default function NuevaEscritura()
     setDescription(event.target.value);
   };
 
-  const handleContentChange = (event) => {
-    setContent(event.target.value);
+  const handleContentChange = (newContent) => {
+    setContent(newContent);
   };
 
   const handleGenreChange = (event) => {
@@ -59,7 +60,7 @@ export default function NuevaEscritura()
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Titulo' />
       </div>
       <div className="mb-5">
-        <select className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md peer" onChange={handleGenreChange}>
+        <select value={genre} className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md peer" onChange={handleGenreChange}>
           <option selected>--Selecciona un genero--</option>
           <option value="Ficcion">Ficcion</option>
           <option value="No-Ficticia">No-Ficticia</option>
@@ -75,9 +76,9 @@ export default function NuevaEscritura()
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" resize='none' placeholder='Sinopsis'></textarea>
       </div>
       <div className="mb-5">
-        <textarea value={content} onChange={handleContentChange} rows="20"
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Escribe tu historia...'>  </textarea>
+        <TipTap content={content} onChange={handleContentChange} />
       </div>
+
 
       <button type="submit" className="w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
         Submit
