@@ -1,14 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import db from '@/libs/db';
 import Books from '@/components/Books';
-import logoQQ from "../../public/img/logoAmarillo.svg";
-import fondo1 from '../../public/img/fondo1QQ.png';
-import fondo2 from '../../public/img/fondo2.jpg';
-import fondo3 from '../../public/img/fondo3.jpg';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import TransitionLink from '@/components/TransitionLink';
 import { Rubik_Mono_One } from "next/font/google";
 
 const rubik = Rubik_Mono_One({

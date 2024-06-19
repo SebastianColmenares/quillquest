@@ -32,14 +32,14 @@ export default async function ClientPage()
             <>
                 <div className='container max-w-4xl mx-auto py-8'>
                     <div className={fugaz.className}>
-                    <h1 className='text-4xl'>Mis Libros</h1>
+                    <h1 className="text-4xl mb-8">Mis Libros</h1>
                     </div>
-                    <div className='grid grid-cols-3 gap-4 mt-10'>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {
                 myBooks.map((myBooks) => {
                     const dateString = new Date(myBooks.createdAt).toDateString();
                         return (
-                    <Link key={myBooks.id} href={`/libros/${myBooks.id}`}>
+                    <Link  key={myBooks.id} href={`/libros/${myBooks.id}`} >
                         <Books
                         key={myBooks.id}
                         id={myBooks.id}

@@ -50,3 +50,10 @@ body
     line-height: 2.5rem/* 40px */;
     margin-bottom: 1.5rem/* 16px */;
 }
+
+.line-clamp-5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

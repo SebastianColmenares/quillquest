@@ -1,5 +1,6 @@
-import db from '@/libs/db';
+'use client'
 import { Oswald } from "next/font/google";
+import { useState } from "react";
 
 const oswald = Oswald ({
     weight: '400',
@@ -8,6 +9,13 @@ const oswald = Oswald ({
 
 export default function Books({id, title, description, authorName, dateCreated, genre, color})
     {
+
+        const [expanded, setExpanded] = useState(false);
+
+        const toggleExpand = () => {
+            setExpanded(!expanded);
+        };
+
         return(
         <div>
                 <div className='flex items-center justify-center m-2'>
@@ -24,7 +32,10 @@ export default function Books({id, title, description, authorName, dateCreated, 
                                 
                                 <p className="mt-5 p-2 font-mono text-sm bg-emerald-900 text-emerald-200">{dateCreated}</p>
                             </div>
-                        <p className="p-2 mt-2 text-lg bg-gray-700 text-gray-300">{description}</p>
+                        <p className="p-2 mt-2 text-lg bg-gray-700 text-gray-300 line-clamp-5"  style={{ maxHeight: expanded ? 'none' : '7.5em', overflow: 'hidden' }}>{description}</p>
+                        <button onClick={toggleExpand} className="text-blue-500 hover:underline mb-2">
+                            {expanded ? 'Mostrar menos' : 'Leer más'}
+                         </button>
                     </div>
                 </div>
         </div>

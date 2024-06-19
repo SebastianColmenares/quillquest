@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE `book` ADD COLUMN `description` VARCHAR(1000) NOT NULL DEFAULT 'N/A',
-    ADD COLUMN `price` DECIMAL(10, 2) NOT NULL DEFAULT 0.00;
