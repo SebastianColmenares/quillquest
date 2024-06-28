@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Tiptap from '@/components/TipTap';
+import Editor from '@/components/Editor';
 
 export default function NuevaEscritura() {
   const [title, setTitle] = useState('');
@@ -72,11 +73,17 @@ export default function NuevaEscritura() {
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Sinopsis'></textarea>
       </div>
       <div className="mb-5">
-        <Tiptap content={content} onChange={(newContent) => handleContentChange(newContent)} />
+        {/*<Tiptap content={content} onChange={(newContent) => handleContentChange(newContent)} />*/}
       </div>
+
+      <div className="mb-5">
+      <Editor content={content} onChange={(newContent) => handleContentChange(newContent)}/>
+      </div>
+      
       <button type="submit" className="w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
         Submit
       </button>
+      
     </form>
   );
 }

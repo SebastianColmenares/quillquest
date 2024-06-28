@@ -25,7 +25,6 @@ export default async function ClientPage()
             author: true,
         },
     });
-    console.log(myBooks)
 
    { 
         return(
