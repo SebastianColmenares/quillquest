@@ -25,33 +25,33 @@ const MenuBar = () => {
         </div>
         <div className="col-stop-2 grid grid-rows-2">
             <div className='row-stop-1'>
-                <button onClick={() => editor.chain().focus().toggleHeading({level: 1}).run()} className={editor.isActive('heading', {level: 1}) ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+                <button onClick={() => editor.chain().focus().toggleHeading({level: 1}).run()} className={editor.isActive('heading', {level: 1}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-280v-400h80v160h160v-160h80v400h-80v-160H280v160h-80Zm480 0v-320h-80v-80h160v400h-80Z"/></svg>
                 </button>
-                <button onClick={() => editor.chain().focus().toggleHeading({level: 2}).run()} className={editor.isActive('heading', {level: 2}) ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+                <button onClick={() => editor.chain().focus().toggleHeading({level: 2}).run()} className={editor.isActive('heading', {level: 2}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M120-280v-400h80v160h160v-160h80v400h-80v-160H200v160h-80Zm400 0v-160q0-33 23.5-56.5T600-520h160v-80H520v-80h240q33 0 56.5 23.5T840-600v80q0 33-23.5 56.5T760-440H600v80h240v80H520Z"/></svg>
                 </button>
-                <button onClick={() => editor.chain().focus().toggleHeading({level: 3}).run()} className={editor.isActive('heading', {level: 3}) ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+                <button onClick={() => editor.chain().focus().toggleHeading({level: 3}).run()} className={editor.isActive('heading', {level: 3}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M120-280v-400h80v160h160v-160h80v400h-80v-160H200v160h-80Zm400 0v-80h240v-80H600v-80h160v-80H520v-80h240q33 0 56.5 23.5T840-600v240q0 33-23.5 56.5T760-280H520Z"/></svg>
                 </button>
-                <button onClick={() => editor.chain().focus().toggleHeading({level: 4}).run()} className={editor.isActive('heading', {level: 4}) ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+                <button onClick={() => editor.chain().focus().toggleHeading({level: 4}).run()} className={editor.isActive('heading', {level: 4}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M120-280v-400h80v160h160v-160h80v400h-80v-160H200v160h-80Zm600 0v-120H520v-280h80v200h120v-200h80v200h80v80h-80v120h-80Z"/></svg>
                 </button>
             </div>
             <div className='row-span-2'>
-                <button onClick={() => editor.chain().focus().setParagraph().run()} className={editor.isActive('paragraph') ? ' bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Parrafo</button>
-                <button onClick={() => editor.chain().focus().toggleBlockquote().run()} className={editor.isActive('blockquote') ? ' bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Dialogo</button>
+                <button onClick={() => editor.chain().focus().setParagraph().run()} className={editor.isActive('paragraph') ? ' bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Parrafo</button>
+                <button onClick={() => editor.chain().focus().toggleBlockquote().run()} className={editor.isActive('blockquote') ? ' bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Dialogo</button>
             </div>
         </div>
         <div className="col-stop-3">
-            <button onClick={() => editor.chain().focus().setHorizontalRule().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-indigo-600'}>Linea Horizontal</button>
-            <button onClick={() => editor.chain().focus().setHardBreak().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-indigo-600'}>Salto de linea</button>
+            <button onClick={() => editor.chain().focus().setHorizontalRule().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-emerald-600'}>Linea Horizontal</button>
+            <button onClick={() => editor.chain().focus().setHardBreak().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-emerald-600'}>Salto de linea</button>
         </div>
             <div className="col-stop-4">
-                <button onClick={() => editor.chain().focus().undo().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-indigo-600'}>
+                <button onClick={() => editor.chain().focus().undo().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-amber-600'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M280-200v-80h284q63 0 109.5-40T720-420q0-60-46.5-100T564-560H312l104 104-56 56-200-200 200-200 56 56-104 104h252q97 0 166.5 63T800-420q0 94-69.5 157T564-200H280Z"/></svg>
                 </button>
-                <button onClick={() => editor.chain().focus().redo().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-indigo-600'}>
+                <button onClick={() => editor.chain().focus().redo().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-amber-600'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M396-200q-97 0-166.5-63T160-420q0-94 69.5-157T396-640h252L544-744l56-56 200 200-200 200-56-56 104-104H396q-63 0-109.5 40T240-420q0 60 46.5 100T396-280h284v80H396Z"/></svg>
                 </button>
             </div>
