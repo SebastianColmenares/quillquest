@@ -1,5 +1,5 @@
 'use client'
-import Toolbar from '@/components/Toolbar'
+import Placeholder from '@tiptap/extension-placeholder'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 
@@ -10,7 +10,9 @@ const Tiptap = ({onChange, content}) => {
   };
 
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [StarterKit, 
+      Placeholder.configure({
+      placeholder: 'Write something …'})],
     editorProps: {
       attributes: {
       class: "mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md",
@@ -19,7 +21,6 @@ const Tiptap = ({onChange, content}) => {
       onUpdate: ({ editor }) => {
       handleChange(editor.getHTML());
       },
-      content: "Comienza tu historia",
       })
     
       if (!editor) {
@@ -29,7 +30,6 @@ const Tiptap = ({onChange, content}) => {
 
   return (
     <>
-      <Toolbar editor={editor} content={content}/>
       <EditorContent style={{whiteSpace: "preline"}} editor={editor} />
     </>
   )

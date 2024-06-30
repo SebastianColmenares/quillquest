@@ -1,6 +1,7 @@
 'use client'
 import { Color } from '@tiptap/extension-color'
 import ListItem from '@tiptap/extension-list-item'
+import Placeholder from '@tiptap/extension-placeholder'
 import TextStyle from '@tiptap/extension-text-style'
 import { EditorProvider, useCurrentEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
@@ -64,10 +65,16 @@ const extensions = [
     StarterKit,
     Color.configure({ types: [TextStyle.name, ListItem.name] }),
     TextStyle.configure({ types: [ListItem.name] }),
+    Placeholder.configure({
+        placeholder: 'Comienza tu historia...',
+      }),
+    
 ]
 
 export default () => {
     return (
-      <EditorProvider slotBefore={<MenuBar />} extensions={extensions}></EditorProvider>
+        <>
+            <EditorProvider slotBefore={<MenuBar/>} extensions={extensions}/>
+        </>
     )
 }
