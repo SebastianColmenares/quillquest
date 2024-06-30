@@ -3,33 +3,33 @@ import { Color } from '@tiptap/extension-color'
 import ListItem from '@tiptap/extension-list-item'
 import Placeholder from '@tiptap/extension-placeholder'
 import TextStyle from '@tiptap/extension-text-style'
-import { EditorProvider, useCurrentEditor } from '@tiptap/react'
+import { EditorProvider, useCurrentEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 
-const MenuBar = () => {
-  const {editor} = useCurrentEditor()
+function MenuBar() {
+const {editor} = useCurrentEditor()
 
   if (!editor) {
     return null
   }
 
   return (
-    <div className="control-group">
-      <div className="button-group grid grid-cols-4">
+    <div className="control-group bg-[#1a1a1a] shadow-inner shadow-black rounded-xl fixed top-[600px] right-64 transform -translate-y-1/2 w-48 p-4">
+      <div className="button-group">
         <div className="col-stop-1">
-            <button onClick={() => editor.chain().focus().toggleBold().run()} disabled={!editor.can().chain().focus().toggleBold().run()} className={editor.isActive('bold') ? 'bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-xl p-2 font-mono text-md m-2' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+            <button onClick={() => editor.chain().focus().toggleBold().run()} disabled={!editor.can().chain().focus().toggleBold().run()} className={editor.isActive('bold') ? 'bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-xl p-2 font-mono text-md m-2' : 'rounded-xl p-2 font-mono text-md m-2   border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M272-200v-560h221q65 0 120 40t55 111q0 51-23 78.5T602-491q25 11 55.5 41t30.5 90q0 89-65 124.5T501-200H272Zm121-112h104q48 0 58.5-24.5T566-372q0-11-10.5-35.5T494-432H393v120Zm0-228h93q33 0 48-17t15-38q0-24-17-39t-44-15h-95v109Z"/></svg>
             </button>
-            <button onClick={() => editor.chain().focus().toggleItalic().run()} disabled={!editor.can().chain().focus().toggleItalic().run()} className={editor.isActive('italic') ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+            <button onClick={() => editor.chain().focus().toggleItalic().run()} disabled={!editor.can().chain().focus().toggleItalic().run()} className={editor.isActive('italic') ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2  border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-200v-100h160l120-360H320v-100h400v100H580L460-300h140v100H200Z"/></svg>
             </button>
         </div>
         <div className="col-stop-2 grid grid-rows-2">
             <div className='row-stop-1'>
-                <button onClick={() => editor.chain().focus().toggleHeading({level: 1}).run()} className={editor.isActive('heading', {level: 1}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+                <button onClick={() => editor.chain().focus().toggleHeading({level: 1}).run()} className={editor.isActive('heading', {level: 1}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d]  transition-all duration-200'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-280v-400h80v160h160v-160h80v400h-80v-160H280v160h-80Zm480 0v-320h-80v-80h160v400h-80Z"/></svg>
                 </button>
-                <button onClick={() => editor.chain().focus().toggleHeading({level: 2}).run()} className={editor.isActive('heading', {level: 2}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
+                <button onClick={() => editor.chain().focus().toggleHeading({level: 2}).run()} className={editor.isActive('heading', {level: 2}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2  border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M120-280v-400h80v160h160v-160h80v400h-80v-160H200v160h-80Zm400 0v-160q0-33 23.5-56.5T600-520h160v-80H520v-80h240q33 0 56.5 23.5T840-600v80q0 33-23.5 56.5T760-440H600v80h240v80H520Z"/></svg>
                 </button>
                 <button onClick={() => editor.chain().focus().toggleHeading({level: 3}).run()} className={editor.isActive('heading', {level: 3}) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>
@@ -71,10 +71,26 @@ const extensions = [
     
 ]
 
-export default () => {
+const EditorText = ({ content, onChange }) => {
+    const handleChange = (newContent) => {
+      onChange(newContent)
+      console.log(newContent)
+    }
+  
     return (
-        <>
-            <EditorProvider slotBefore={<MenuBar/>} extensions={extensions}/>
-        </>
+      <>
+        <EditorProvider
+          extensions={extensions}
+          content={content}
+          onUpdate={({ editor }) => {
+            handleChange(editor.getHTML())
+          }}
+        >
+          <MenuBar />
+          <EditorContent />
+        </EditorProvider>
+      </>
     )
-}
+  }
+  
+  export default EditorText

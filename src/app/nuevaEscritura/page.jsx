@@ -1,8 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Tiptap from '@/components/TipTap';
-import Editor from '@/components/Editor';
+import EditorText from '@/components/Editor';
 
 export default function NuevaEscritura() {
   const [title, setTitle] = useState('');
@@ -77,7 +76,7 @@ export default function NuevaEscritura() {
       </div>
 
       <div className="mb-5">
-      <Editor content={content} onChange={(newContent) => handleContentChange(newContent)}/>
+      <EditorText content={content} onChange={(newContent) => handleContentChange(newContent)}/>
       </div>
       
       <button type="submit" className="w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
