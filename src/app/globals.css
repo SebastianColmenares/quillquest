@@ -2,23 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-body
-{
-    /*@apply bg-gradient-to-r from-amber-600 from-10% via-amber-400 via-30% to-teal-400 to-90%;
-    /* background: rgb(124,98,83);
-    /* background: linear-gradient(90deg, rgba(124,98,83,1) 0%, rgba(218,180,141,1) 38%, rgba(108,118,110,1) 73%, rgba(60,80,81,1) 100%); */
-    background: #1b1b1bff;
+body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
-    color: #f1f5f9;
-    font-family: "lato";
-    
-
-    font-family: Cormorant;
+    font-family: "Lato", sans-serif;
+    font-family: "Cormorant", serif;
 }
-/*bg-gradient-to-br from-cyan-300 via-cyan-100  to-cyan-500 text-white px-4 py-2 focus:ring gradient element-to-rotate;*/
+
+/* Tema oscuro */
+.dark-theme {
+    background: #222223;
+    color: #f1f5f9;
+}
+
+/* Tema claro */
+.light-theme {
+    background: #EBEAD0;
+    color: #000000;
+}
+
+
 @layer utilities {
     @keyframes gradientChange {
         0% {
@@ -43,10 +48,71 @@ body
     }
 }
 
-.textoReg
-{
+.textoReg {
     font-weight: 800;
-    font-size: 2.25rem/* 36px */;
-    line-height: 2.5rem/* 40px */;
-    margin-bottom: 1.5rem/* 16px */;
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+    margin-bottom: 1.5rem; /* 16px */
+}
+
+h1 { 
+    font-size: 1.4rem;
+    font-weight: bold; 
+  }
+
+  h2 { 
+    font-size: 1.2rem;
+    font-weight: bold; 
+  }
+
+  h3 { 
+    font-size: 1.1rem;
+    font-weight: bold; 
+  }
+
+  h4, 
+  h5, 
+  h6 { 
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4, 
+  h5, 
+  h6 { 
+    margin: 0.3rem;
+  }
+
+  blockquote {
+    border-left: 1px solid;
+    margin: 0.5rem;
+    padding-left: 1rem;
+  }
+
+.tiptap {
+  background: #222222;
+  box-shadow: inset 0 2px 4px 0 #000;
+  min-height: 20vh;
+  max-height: 80vh;
+  overflow: auto;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+}
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap p.is-empty::before {
+  color: #adb5bd;
+  content: '...';
+  float: left;
+  height: 0;
+  pointer-events: none;
 }
