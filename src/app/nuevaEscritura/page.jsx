@@ -72,7 +72,6 @@ export default function NuevaEscritura() {
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Sinopsis'></textarea>
       </div>
       <div className="mb-5">
-        {/*<Tiptap content={content} onChange={(newContent) => handleContentChange(newContent)} />*/}
       </div>
 
       <div className="mb-5">
