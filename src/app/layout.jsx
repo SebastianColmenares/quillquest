@@ -1,4 +1,3 @@
-
 import TopNavbar from '@/components/TopNavbar';
 import { Lato } from "next/font/google";
 import "./globals.css";

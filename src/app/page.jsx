@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import RegisterForm from '@/components/RegisterForm';
 import Link from 'next/link';
 import db from '@/libs/db';
 import Books from '@/components/Books';
@@ -9,7 +10,9 @@ import fondo3 from '../../public/img/fondo3.jpg';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import TransitionLink from '@/components/TransitionLink';
+import AuthModal from '@/components/AuthModal';
 import { Rubik_Mono_One } from "next/font/google";
+import SingInForm from '@/components/SingInForm';
 
 const rubik = Rubik_Mono_One({
   weight: '400',
@@ -45,6 +48,7 @@ async function HomePage() {
 
                   <div className={rubik.className}>
                     <h1 className='text-2xl tracking-[0.8rem] mb-5 text-center text-slate-100'> RECIENTEMENTE AGREGADOS </h1>
+                    
                   </div>
                     
                     <div className='grid grid-cols-3 mt-5'>
