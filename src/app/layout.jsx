@@ -1,5 +1,5 @@
 
-import TopNavbar from '@/components/TopNavbar';
+import Navbar from '@/components/TopNavbar';
 import { Lato } from 'next/font/google';
 import './globals.css';
 import NextAuthProvider from './NextAuthProvider';
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={lato.className}>
         <NextAuthProvider>
-          <TopNavbar />
+          <Navbar />
           {children}
         </NextAuthProvider>
       </body>

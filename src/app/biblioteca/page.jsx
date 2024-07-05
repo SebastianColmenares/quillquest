@@ -39,7 +39,7 @@ export default async function bibliotecaPage() {
                 title={book.title}
                 description={book.description}
                 authorName={book.author.username}
-                genre={book.genre.name}
+                genres={book.genre.name}
                 dateCreated={dateString}
                 />
                 </Link>
