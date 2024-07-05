@@ -1,6 +1,5 @@
 'use client'
 import { Oswald } from 'next/font/google'
-import { useState } from 'react'
 
 const oswald = Oswald({
   weight: '400',
