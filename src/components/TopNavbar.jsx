@@ -12,14 +12,14 @@ const rubik = Rubik_Mono_One({
 });
 
 async function Navbar() {
-  // Obtener la sesión actual del usuario
+
   const session = await getServerSession(authOptions);
 
   return (
     <>
       {!session?.user ? (
         <>
-          {/* Barra de navegación para usuarios no autenticados */}
+
           <nav className="bg-gray-800 p-4 fixed w-full top-0 z-50">
             <div className="container mx-auto flex justify-between items-center">
               <div className="flex items-center space-x-4">
@@ -36,16 +36,16 @@ async function Navbar() {
               </div>
             </div>
           </nav>
-          <div className="pt-24"> {/* Ajustar el padding-top */}
+          <div className="pt-24">
             <div className="text-slate-200 gap-4 sm:gap-20 md:gap-40 flex justify-center text-lg sm:text-2xl md:text-3xl border-b-2 border-t-2 mt-4 px-4 md:px-8">
-              <span className="tracking-[0.5rem] sm:tracking-[1rem]">DESCUBRE TU PRÓXIMA HISTORIA </span>
+              <span className="tracking-[0.5rem] sm:tracking-[1rem] mt-4">DESCUBRE TU PRÓXIMA HISTORIA </span>
             </div>
           </div>
         </>
       ) : (
         <>
-          {/* Barra de navegación para usuarios autenticados */}
-          <nav className="bg-gray-800 p-4 fixed w-full top-0 z-50">
+
+          <nav className="bg-gray-800 p-2 fixed w-full top-0 z-50">
             <div className="container mx-auto flex justify-between items-center">
               <div className="flex items-center space-x-4">
                 <TransitionImageLink href="/" />
@@ -60,7 +60,7 @@ async function Navbar() {
               </div>
             </div>
           </nav>
-          <div className="pt-24"> {/* Ajustar el padding-top */}
+          <div className="pt-24"> 
             <div className="text-slate-200 gap-4 sm:gap-20 md:gap-40 flex justify-center text-lg sm:text-2xl md:text-3xl border-b-2 border-t-2 mt-4 px-4 md:px-8">
               <span className="tracking-[0.5rem] sm:tracking-[1rem]">DESCUBRE TU PRÓXIMA HISTORIA </span>
             </div>

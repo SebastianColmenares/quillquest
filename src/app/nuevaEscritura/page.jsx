@@ -29,25 +29,30 @@ export default function NuevaEscritura() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
+      const postData = { title, content, description, genre };
+      console.log('Sending data:', postData);
+  
       const response = await fetch("/api/addPost", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, content, description, genre })
+        body: JSON.stringify(postData)
       });
-
+  
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
-
-      console.log('Success:', await response.json());
+  
+      const data = await response.json();
+      console.log('Success:', data);
       router.push("/client");
       router.refresh();
     } catch (error) {
       console.error('Fetch error:', error.message);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-16">
