@@ -10,7 +10,6 @@ async function getBooks(){
     },
     include: {
       author: { select: {username: true} },
-      genre: { select: {name: true} }
     }
   })
   return books;
@@ -39,7 +38,7 @@ export default async function bibliotecaPage() {
                 title={book.title}
                 description={book.description}
                 authorName={book.author.username}
-                genres={book.genre.name}
+                genres={book.genreName}
                 dateCreated={dateString}
                 />
                 </Link>

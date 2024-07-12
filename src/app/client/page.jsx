@@ -23,7 +23,6 @@ export default async function ClientPage()
         },
         include: {
             author: true,
-            genre: true,
         },
     });
 
@@ -45,7 +44,7 @@ export default async function ClientPage()
                         id={myBooks.id}
                         title={myBooks.title}
                         description={myBooks.description}
-                        genres={myBooks.genre.name}
+                        genres={myBooks.genreName}
                         authorName={myBooks.author?.username}
                         dateCreated={dateString}
                         />

@@ -61,16 +61,8 @@ export default function NuevaEscritura() {
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Titulo' />
       </div>
       <div className="mb-5">
-        <select value={genre} onChange={handleGenreChange} className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md peer">
-          <option value="" disabled>--Selecciona un genero--</option>
-          <option value="Ficcion">Ficcion</option>
-          <option value="No-Ficticia">No-Ficticia</option>
-          <option value="Fantasia">Fantasia</option>
-          <option value="Terror">Terror</option>
-          <option value="Biografica">Biografica</option>
-          <option value="Romance">Romance</option>
-          <option value="Suspenso">Suspenso</option>
-        </select>
+        <input type="text" id="genre" value={genre} onChange={handleGenreChange}
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Genero' />
       </div>
       <div className="mb-5">
         <textarea value={description} onChange={handleDescriptionChange} rows="4"

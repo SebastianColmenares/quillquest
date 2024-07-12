@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.0",
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.16.2",
     "@tiptap/extension-color": "^2.4.0",
     "@tiptap/extension-dropcursor": "^2.4.0",
     "@tiptap/extension-history": "^2.4.0",

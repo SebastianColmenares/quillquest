@@ -19,7 +19,6 @@ async function getBooks(){
     },
     include: {
       author: { select: {username: true} },
-      genre: { select: {name: true} }
     }
   })
   return books;
@@ -55,7 +54,7 @@ async function HomePage() {
                                 title={book.title}
                                 description={book.description}
                                 authorName={book.author.username}
-                                genres={book.genre.name}
+                                genres={book.genreName}
                                 dateCreated={dateString}
                                 />
                                 </Link>
@@ -134,7 +133,7 @@ async function HomePage() {
                                   title={book.title}
                                   description={book.description}
                                   authorName={book.author.username}
-                                  genre={book.genre.name}
+                                  genres={book.genreName}
                                   dateCreated={dateString}
                                   />
                                   </Link>

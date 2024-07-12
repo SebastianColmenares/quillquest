@@ -6,7 +6,7 @@ import { getCurrentUser } from '@/libs/session';
 export default async function BookDetailPage({params}) {
       
     const userPerfil = await getCurrentUser();
-    const bookId = parseInt(params.id, 10);
+    const bookId = params.id;
 
     const books = await db.book.findFirst({
         where: {
@@ -14,7 +14,6 @@ export default async function BookDetailPage({params}) {
         },
         include: {
             author: true,
-            genre: true,
         },
     });
 
