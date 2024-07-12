@@ -26,7 +26,7 @@ export default async function BookDetailPage({params}) {
                 <span>Escrito por: </span>
                 <span className='m-2 text-lg'>{books?.authorName} </span>
                 <span className='m-2 text-lg'>{books?.genreName} </span>
-                <div className="mt-4 text-lg "> {books?.content} </div>
+                <div id='bookContent' dangerouslySetInnerHTML={{ __html: books?.content }} className="mt-4 text-lg "/>
             </div>
 
             ):(
