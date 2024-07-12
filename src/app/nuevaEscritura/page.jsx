@@ -7,7 +7,7 @@ export default function NuevaEscritura() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [description, setDescription] = useState('');
-  const [genre, setGenre] = useState('');
+  const [genre, setGenre] = useState('')
 
   const router = useRouter();
 
