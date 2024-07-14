@@ -22,6 +22,8 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://quillquest-tau.vercel.app/" />
       </head>
       <body className={lato.className}>
         <NextAuthProvider>
