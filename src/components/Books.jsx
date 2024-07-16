@@ -1,5 +1,5 @@
 'use client'
-import { Oswald } from 'next/font/google'
+import { Oswald } from 'next/font/google';
 
 const oswald = Oswald({
   weight: '400',
@@ -22,9 +22,11 @@ export default function BookCard({ title, description, authorName, dateCreated, 
           <p className="mt-2 p-2 font-mono text-sm bg-emerald-900 text-emerald-200">{dateCreated}</p>
         </div>
         <div className="px-3 pt-2 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            {genres}
-          </span>
+          {genres.map((genre, index) => (
+            <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              {genre}
+            </span>
+          ))}
         </div>
         <div className="p-2 mt-2 text-base bg-gray-700 text-gray-300 overflow-hidden">
           {description}
@@ -33,5 +35,6 @@ export default function BookCard({ title, description, authorName, dateCreated, 
     </div>
   );
 }
+
 
 

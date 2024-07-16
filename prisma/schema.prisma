@@ -20,7 +20,7 @@ model book {
   authorName  String
   description String   @db.String @default("N/A")
   content     String   @db.String
-  genreName   String   @db.String @default("N/A")
+  genreName   String[] @db.String
   price       Float    @default(0.00)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt @default(now())

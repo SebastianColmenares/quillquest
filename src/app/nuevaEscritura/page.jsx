@@ -7,7 +7,7 @@ export default function NuevaEscritura() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [description, setDescription] = useState('');
-  const [genre, setGenre] = useState('')
+  const [genres, setGenres] = useState([]);
 
   const router = useRouter();
 
@@ -24,14 +24,15 @@ export default function NuevaEscritura() {
   };
 
   const handleGenreChange = (event) => {
-    setGenre(event.target.value);
+    const selectedGenres = event.target.value.split(',').map(genre => genre.trim());
+    setGenres(selectedGenres);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
   
     try {
-      const postData = { title, content, description, genre };
+      const postData = { title, content, description, genres};
       console.log('Sending data:', postData);
   
       const response = await fetch("/api/addPost", {
@@ -47,7 +48,6 @@ export default function NuevaEscritura() {
       const data = await response.json();
       console.log('Success:', data);
       router.push("/client");
-      router.refresh();
     } catch (error) {
       console.error('Fetch error:', error.message);
     }
@@ -61,8 +61,8 @@ export default function NuevaEscritura() {
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Titulo' />
       </div>
       <div className="mb-5">
-        <input type="text" id="genre" value={genre} onChange={handleGenreChange}
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Genero' />
+        <input type="text" id="genre" value={genres.join(', ')} onChange={handleGenreChange}
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Genres (comma-separated)' />
       </div>
       <div className="mb-5">
         <textarea value={description} onChange={handleDescriptionChange} rows="4"
