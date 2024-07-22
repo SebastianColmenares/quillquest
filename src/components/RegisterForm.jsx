@@ -69,7 +69,13 @@ const RegisterForm = () => {
           <div className="relative mb-4">
             <input
               type="email"
-              {...register("email", { required: { value: true, message: "Correo es requerido" } })}
+              {...register("email", { 
+                required: { value: true, message: "Correo es requerido" },
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Correo no es válido"
+                }
+              })}
               id="email"
               className="peer placeholder-transparent w-full bg-transparent border-b py-2 border-gray-400 focus:outline-none focus:border-green-500 focus:border-b-2 transition-colors"
               placeholder="Email:"
@@ -84,7 +90,18 @@ const RegisterForm = () => {
           <div className="relative mb-4">
             <input
               type="password"
-              {...register("password", { required: { value: true, message: "Contraseña es requerida" } })}
+              {...register("password", { 
+                required: { value: true, message: "Contraseña es requerida" },
+                minLenght: {
+                  value: 8,
+                  message: "La contraseña debe tener al menos 8 caracteres"
+                },
+                validate: {
+                  uppercase: value => /[A-Z]/.test(value) || "Password must contain at least one uppercase letter",
+                  lowercase: value => /[a-z]/.test(value) || "Password must contain at least one lowercase letter",
+                  symbol: value => /[^A-Za-z0-9]/.test(value) || "Password must contain at least one special character"
+              }
+              })}
               id="password"
               className="peer placeholder-transparent w-full bg-transparent border-b py-2 border-gray-400 focus:outline-none focus:border-green-500 focus:border-b-2 transition-colors"
               placeholder="Contraseña:"
