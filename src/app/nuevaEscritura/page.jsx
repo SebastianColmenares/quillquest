@@ -7,7 +7,7 @@ export default function NuevaEscritura() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [description, setDescription] = useState('');
-  const [genre, setGenre] = useState('');
+  const [genres, setGenres] = useState([]);
 
   const router = useRouter();
 
@@ -24,30 +24,35 @@ export default function NuevaEscritura() {
   };
 
   const handleGenreChange = (event) => {
-    setGenre(event.target.value);
+    const selectedGenres = event.target.value.split(',').map(genre => genre.trim());
+    setGenres(selectedGenres);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
+      const postData = { title, content, description, genres};
+      console.log('Sending data:', postData);
+  
       const response = await fetch("/api/addPost", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, content, description, genre })
+        body: JSON.stringify(postData)
       });
-
+  
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
-
-      console.log('Success:', await response.json());
+  
+      const data = await response.json();
+      console.log('Success:', data);
       router.push("/client");
-      router.refresh();
     } catch (error) {
       console.error('Fetch error:', error.message);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-16">
@@ -56,16 +61,8 @@ export default function NuevaEscritura() {
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Titulo' />
       </div>
       <div className="mb-5">
-        <select value={genre} onChange={handleGenreChange} className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md peer">
-          <option value="" disabled>--Selecciona un genero--</option>
-          <option value="Ficcion">Ficcion</option>
-          <option value="No-Ficticia">No-Ficticia</option>
-          <option value="Fantasia">Fantasia</option>
-          <option value="Terror">Terror</option>
-          <option value="Biografica">Biografica</option>
-          <option value="Romance">Romance</option>
-          <option value="Suspenso">Suspenso</option>
-        </select>
+        <input type="text" id="genre" value={genres.join(', ')} onChange={handleGenreChange}
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Genres (comma-separated)' />
       </div>
       <div className="mb-5">
         <textarea value={description} onChange={handleDescriptionChange} rows="4"

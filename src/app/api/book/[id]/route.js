@@ -3,7 +3,7 @@ import db from "@/libs/db";
 
 
 export async function DELETE(request, { params }) {
-    const id = parseInt(params.id, 10);
+    const id = params.id;
 
     const book = await db.book.delete({
         where: {id},

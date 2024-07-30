@@ -5,7 +5,7 @@ import { getCurrentUser } from '@/libs/session';
 
 export async function PUT(request, { params }) {
     const res = await request.json();
-    const id = parseInt(params.id, 10);
+    const id = params.id;
 
     const session = await getCurrentUser();
         const email = session.email;

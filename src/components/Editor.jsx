@@ -15,11 +15,22 @@ function MenuBar() {
     return null;
   }
 
+  const handleOpenButtonClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleButtonClick = (action) => (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+    action();
+  };
+
   return (
     <>
-      <button 
+      <button  type='button'
         className="fixed transition-all duration-300 hover:scale-125 top-1/2 right-80 z-50 bg-indigo-600 hover:bg-indigo-500 text-white p-2 rounded-full h-24 focus:outline-none text-xl"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleOpenButtonClick}
       >
         {isOpen ? '>>' : '<<'}
       </button>
@@ -27,42 +38,42 @@ function MenuBar() {
         <div className="control-group rounded-xl p-4 pt-60 w-64 h-full overflow-y-auto">
           <div className="button-group grid grid-cols-2 gap-2">
           <div className="col-span-1">
-              <button onClick={() => editor.chain().focus().undo().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-amber-600'}
-                dangerouslySetInnerHTML={{ __html: icons.undo }}>
+              <button onClick={handleButtonClick(() => editor.chain().focus().undo().run())} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-amber-600'}>
+                <span dangerouslySetInnerHTML={{ __html: icons.undo }} />
               </button>
-              <button onClick={() => editor.chain().focus().redo().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-amber-600'}
+              <button onClick={handleButtonClick(() => editor.chain().focus().redo().run())} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-amber-600'}
                 dangerouslySetInnerHTML={{ __html: icons.redo }}>
               </button>
             </div>
             <div className="col-span-1">
-              <button onClick={() => editor.chain().focus().toggleBold().run()} disabled={!editor.can().chain().focus().toggleBold().run()} className={editor.isActive('bold') ? 'bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-xl p-2 font-mono text-md m-2' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}
+              <button onClick={handleButtonClick(() => editor.chain().focus().toggleBold().run())} disabled={!editor.can().chain().focus().toggleBold().run()} className={editor.isActive('bold') ? 'bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-xl p-2 font-mono text-md m-2' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}
                 dangerouslySetInnerHTML={{ __html: icons.bold }}>
               </button>
-              <button onClick={() => editor.chain().focus().toggleItalic().run()} disabled={!editor.can().chain().focus().toggleItalic().run()} className={editor.isActive('italic') ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}
+              <button onClick={handleButtonClick(() => editor.chain().focus().toggleItalic().run())} disabled={!editor.can().chain().focus().toggleItalic().run()} className={editor.isActive('italic') ? 'bg-indigo-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-indigo-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-indigo-600 hover:bg-[#3d3d3d] transition-all duration-200'}
                 dangerouslySetInnerHTML={{ __html: icons.italic }}>
               </button>
             </div>
             <div className="col-span-1 grid grid-cols-2 md:grid-cols-1 gap-2">
-              <button onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} className={editor.isActive('heading', { level: 1 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
+              <button onClick={handleButtonClick(() => editor.chain().focus().toggleHeading({ level: 1 }).run())} className={editor.isActive('heading', { level: 1 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
                 dangerouslySetInnerHTML={{ __html: icons.h1 }}>
               </button>
-              <button onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={editor.isActive('heading', { level: 2 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
+              <button onClick={handleButtonClick(() => editor.chain().focus().toggleHeading({ level: 2 }).run())} className={editor.isActive('heading', { level: 2 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
                 dangerouslySetInnerHTML={{ __html: icons.h2 }}>
               </button>
-              <button onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={editor.isActive('heading', { level: 3 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
+              <button onClick={handleButtonClick(() => editor.chain().focus().toggleHeading({ level: 3 }).run())} className={editor.isActive('heading', { level: 3 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
                 dangerouslySetInnerHTML={{ __html: icons.h3 }}>
               </button>
-              <button onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()} className={editor.isActive('heading', { level: 4 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
+              <button onClick={handleButtonClick(() => editor.chain().focus().toggleHeading({ level: 4 }).run())} className={editor.isActive('heading', { level: 4 }) ? 'bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : 'rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}
                 dangerouslySetInnerHTML={{ __html: icons.h4 }}>
               </button>
             </div>
             <div className="col-span-1">
-              <button onClick={() => editor.chain().focus().setParagraph().run()} className={editor.isActive('paragraph') ? ' bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Parrafo</button>
-              <button onClick={() => editor.chain().focus().toggleBlockquote().run()} className={editor.isActive('blockquote') ? ' bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Dialogo</button>
+              <button onClick={handleButtonClick(() => editor.chain().focus().setParagraph().run())} className={editor.isActive('paragraph') ? ' bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Parrafo</button>
+              <button onClick={handleButtonClick(() => editor.chain().focus().toggleBlockquote().run())} className={editor.isActive('blockquote') ? ' bg-sky-600 rounded-xl p-2 font-mono text-md m-2 hover:bg-sky-500' : ' rounded-xl p-2 font-mono text-md m-2 border border-sky-600 hover:bg-[#3d3d3d] transition-all duration-200'}>Dialogo</button>
             </div>
             <div className="col-span-1">
-              <button onClick={() => editor.chain().focus().setHorizontalRule().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-emerald-600'}>Linea Horizontal</button>
-              <button onClick={() => editor.chain().focus().setHardBreak().run()} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-emerald-600'}>Salto de linea</button>
+              <button onClick={handleButtonClick(() => editor.chain().focus().setHorizontalRule().run())} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-emerald-600'}>Linea Horizontal</button>
+              <button onClick={handleButtonClick(() => editor.chain().focus().setHardBreak().run())} className={'hover:bg-[#3d3d3d] transition-all duration-200 rounded-xl p-2 font-mono text-md m-2 border border-emerald-600'}>Salto de linea</button>
             </div>
             
           </div>

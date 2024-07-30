@@ -4,85 +4,71 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import TransitionLink from './TransitionLink';
 import TransitionImageLink from './TransitionImageLink';
 import { Rubik_Mono_One } from "next/font/google";
+import AuthModal from './AuthModal';
 
 const rubik = Rubik_Mono_One({
   weight: '400',
   subsets: ['latin'],
-})
+});
 
 async function Navbar() {
+
   const session = await getServerSession(authOptions);
 
   return (
     <>
       {!session?.user ? (
         <>
-        <div className={rubik.className}>
-          <div className="font-black text-slate-100 items-center flex justify-between px-48 text-4xl border-b-2 border-t-2 mt-4">
-            <span className="tracking-[4rem]">QUILL</span>
-            <TransitionImageLink href="/"/>
-            <span className="tracking-[4rem]">QUEST</span>
-          </div>
-        </div>
-          <div className="text-slate-200 gap-40 flex justify-center text-3xl border-b-2 border-t-2 mt-4">
-            <span className="tracking-[1rem]">DESCUBRE</span>
-            <span className="tracking-[1rem]">TU</span>
-            <span className="tracking-[1rem]">PROXIMA</span>
-            <span className="tracking-[1rem]">HISTORIA</span>
-          </div>
-          <div className="text-slate-100 text-2xl flex justify-center mt-4 mb-4">
-            <ul className="flex gap-40">
-                <div className=" p-2 hover:bg-lime-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/biblioteca" label="biblioteca"/>
+
+          <nav className="bg-gray-800 p-4 fixed w-full top-0 z-50">
+            <div className="container mx-auto flex justify-between items-center">
+              <div className="flex items-center space-x-4">
+                <TransitionImageLink href="/" />
+                <Link href="/" className="text-2xl font-bold text-white dark:text-white light:text-[#A3C666]">QUILL QUEST</Link>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className={`${rubik.className} p-1 sm:p-2`}>
+                  <Link href="/biblioteca" className="text-white dark:text-white light:text-[#A3C666] hover:underline">Biblioteca</Link>
                 </div>
-                <div className=" p-2 hover:bg-amber-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/auth/ingreso" label="ingreso"/>
+                <div className={`${rubik.className} p-1 sm:p-2`}>
+                  <AuthModal />
                 </div>
-                <div className=" p-2 hover:bg-sky-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/auth/registro" label="registro"/>
-                </div>
-            </ul>
+              </div>
+            </div>
+          </nav>
+          <div className="pt-24">
+            <div className="text-slate-200 gap-4 sm:gap-20 md:gap-40 flex justify-center text-lg sm:text-2xl md:text-3xl border-b-2 border-t-2 mt-4 px-4 md:px-8">
+              <span className="tracking-[0.5rem] sm:tracking-[1rem] mt-4">DESCUBRE TU PRÓXIMA HISTORIA </span>
+            </div>
           </div>
         </>
-        ) : (
+      ) : (
         <>
-        <div className={rubik.className}>
-          <div className="font-black text-slate-100 items-center flex justify-between px-48 text-4xl border-b-2 border-t-2 mt-4">
-            <span className="tracking-[4rem]">QUILL</span>
-            <TransitionImageLink href="/"/>
-            <span className="tracking-[4rem]">QUEST</span>
+
+          <nav className="bg-gray-800 p-2 fixed w-full top-0 z-50">
+            <div className="container mx-auto flex justify-between items-center">
+              <div className="flex items-center space-x-4">
+                <TransitionImageLink href="/" />
+                <Link href="/" className="text-2xl font-bold text-white dark:text-white light:text-[#A3C666]">QUILL QUEST</Link>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Link href="/" className="text-white dark:text-white light:text-[#A3C666] hover:underline">Menú</Link>
+                <Link href="/biblioteca" className="text-white dark:text-white light:text-[#A3C666] hover:underline">Biblioteca</Link>
+                <Link href="/nuevaEscritura" className="text-white dark:text-white light:text-[#A3C666] hover:underline">Escribir Historia</Link>
+                <Link href="/client" className="text-white dark:text-white light:text-[#A3C666] hover:underline">Mi Perfil</Link>
+                <Link href="/api/auth/signout" className="text-white dark:text-white light:text-[#A3C666] hover:underline">Salir</Link>
+              </div>
+            </div>
+          </nav>
+          <div className="pt-24"> 
+            <div className="text-slate-200 gap-4 sm:gap-20 md:gap-40 flex justify-center text-lg sm:text-2xl md:text-3xl border-b-2 border-t-2 mt-4 px-4 md:px-8">
+              <span className="tracking-[0.5rem] sm:tracking-[1rem]">DESCUBRE TU PRÓXIMA HISTORIA </span>
+            </div>
           </div>
-        </div>
-            <div className="text-slate-200 gap-40 flex justify-center text-3xl border-b-2 border-t-2 mt-4">
-              <span className="tracking-[1rem]">DESCUBRE</span>
-              <span className="tracking-[1rem]">TU</span>
-              <span className="tracking-[1rem]">PROXIMA</span>
-              <span className="tracking-[1rem]">HISTORIA</span>
-            </div>
-            <div className="text-slate-100 text-2xl flex justify-center mt-4 mb-4">
-              <ul className="flex gap-40">
-                <div className=" p-2 hover:bg-purple-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/" label="menu"/>
-                </div>
-                <div className=" p-2 hover:bg-lime-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/biblioteca" label="biblioteca"/>
-                </div>
-                <div className=" p-2 hover:bg-amber-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/nuevaEscritura" label="escribir historia"/>
-                </div>
-                <div className=" p-2 hover:bg-sky-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/client" label="mi perfil"/>
-                </div>
-                <div className=" p-2 hover:bg-rose-300 hover:text-black rounded-xl transition duration-400">
-                  <TransitionLink href="/api/auth/signout" label="salir"/>
-                </div>
-              </ul>
-            </div>
         </>
-        )
-      }
+      )}
     </>
   );
-};
+}
 
 export default Navbar;
