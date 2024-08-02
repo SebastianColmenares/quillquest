@@ -5,7 +5,7 @@ import { getCurrentUser } from '@/libs/session';
 export async function POST(request){
     try {
         const res = await request.json();
-        const { title, content, description, genres } = res;
+        const { title, content, description, genres, image } = res;
 
         const session = await getCurrentUser();
         const email = session.email;
@@ -25,6 +25,7 @@ export async function POST(request){
                 authorName: userUnique.username,
                 description: description,
                 genreName: genres,
+                portada: image,
                 published: true
             }
         });

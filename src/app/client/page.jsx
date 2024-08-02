@@ -47,6 +47,7 @@ export default async function ClientPage()
                         genres={myBooks.genreName}
                         authorName={myBooks.author?.username}
                         dateCreated={dateString}
+                        image={myBooks.portada}
                         />
                     </Link>
                         )

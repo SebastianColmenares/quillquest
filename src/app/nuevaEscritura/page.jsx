@@ -8,6 +8,18 @@ export default function NuevaEscritura() {
   const [content, setContent] = useState('');
   const [description, setDescription] = useState('');
   const [genres, setGenres] = useState([]);
+  const [image, setImage] = useState('');
+
+  function convertToBase64(e) {
+    const reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      setImage(reader.result);
+    };
+    reader.onerror = (error) => {
+      console.error("Error: ", error);
+    };
+  }
 
   const router = useRouter();
 
@@ -32,7 +44,7 @@ export default function NuevaEscritura() {
     event.preventDefault();
   
     try {
-      const postData = { title, content, description, genres};
+      const postData = { title, content, description, genres, image };
       console.log('Sending data:', postData);
   
       const response = await fetch("/api/addPost", {
@@ -52,7 +64,6 @@ export default function NuevaEscritura() {
       console.error('Fetch error:', error.message);
     }
   };
-  
 
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-16">
@@ -69,16 +80,16 @@ export default function NuevaEscritura() {
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Sinopsis'></textarea>
       </div>
       <div className="mb-5">
+        <input type="file" accept="image/*" onChange={convertToBase64}
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" />
       </div>
-
       <div className="mb-5">
-      <EditorText content={content} onChange={(newContent) => handleContentChange(newContent)}/>
+        <EditorText content={content} onChange={(newContent) => handleContentChange(newContent)} />
       </div>
-      
       <button type="submit" className="w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
         Submit
       </button>
-      
     </form>
   );
 }
+

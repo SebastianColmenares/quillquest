@@ -40,6 +40,7 @@ export default async function bibliotecaPage() {
                 authorName={book.author.username}
                 genres={book.genreName}
                 dateCreated={dateString}
+                image={book.portada}
                 />
                 </Link>
               

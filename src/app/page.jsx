@@ -88,6 +88,7 @@ async function HomePage() {
                       authorName={book.author.username}
                       genres={book.genreName}
                       dateCreated={dateString}
+                      image={book.portada}
                       className="p-6"
                     />
                   </div>
@@ -118,6 +119,7 @@ async function HomePage() {
                       authorName={book.author.username}
                       genres={book.genreName}
                       dateCreated={dateString}
+                      image={book.portada}
                       className="p-6"
                     />
                   </div>
