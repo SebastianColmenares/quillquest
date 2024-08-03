@@ -30,7 +30,7 @@ export default function NuevaEscritura() {
   };
 
   const handlePublishedChange = (event) => {
-    setPublished(event.target.value);
+    setPublished(event.target.value === 'true');
   };
 
   const handleDescriptionChange = (event) => {
@@ -75,44 +75,52 @@ export default function NuevaEscritura() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-16">
-       <div className="mb-5 ">
-        <select 
-          id="published" 
-          value={published} 
-          onChange={handlePublishedChange}
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md text-[#a7a6a6]"
+    <div className="relative">
+      {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="text-white text-xl">Redirigiendo a Perfil...</div>
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-16">
+        <div className="mb-5">
+          <select 
+            id="published" 
+            value={published} 
+            onChange={handlePublishedChange}
+            className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md text-[#a7a6a6]"
+          >
+            <option value="true">Publico</option>
+            <option value="false">Privado</option>
+          </select>
+        </div>
+        <div className="mb-5">
+          <input type="text" id="title" value={title} onChange={handleTitleChange}
+            className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Titulo' />
+        </div>
+        <div className="mb-5">
+          <input type="text" id="genre" value={genres.join(', ')} onChange={handleGenreChange}
+            className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Generos (Separalos con comas   " , ")' />
+        </div>
+        <div className="mb-5">
+          <textarea value={description} onChange={handleDescriptionChange} rows="4"
+            className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Sinopsis'></textarea>
+        </div>
+        <div className="mt-1 block w-full px-4 shadow-inner text-[#a7a6a6] bg-[#222222] shadow-black py-3 rounded-md mb-5">
+          <p>Portada:</p>
+          <input type="file" accept="image/*" onChange={convertToBase64}/>
+        </div>
+        <div className="mb-5">
+          <EditorText content={content} onChange={(newContent) => handleContentChange(newContent)} />
+        </div>
+        <button 
+          type="submit" 
+          className={`w-full px-4 py-2 rounded-md ${loading ? 'bg-gray-500 cursor-not-allowed' : 'bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'}`} 
+          disabled={loading}
         >
-          <option value="true">Publico</option>
-          <option value="false">Privado</option>
-        </select>
-      </div>
-      <div className="mb-5">
-        <input type="text" id="title" value={title} onChange={handleTitleChange}
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Titulo' />
-      </div>
-      <div className="mb-5">
-        <input type="text" id="genre" value={genres.join(', ')} onChange={handleGenreChange}
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Generos (Separalos con comas   " , ")' />
-      </div>
-      <div className="mb-5">
-        <textarea value={description} onChange={handleDescriptionChange} rows="4"
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Sinopsis'></textarea>
-      </div>
-      <div className="mt-1 block w-full px-4 shadow-inner text-[#a7a6a6] bg-[#222222] shadow-black py-3 rounded-md mb-5">
-        <p>Portada:</p>
-        <input type="file" accept="image/*" onChange={convertToBase64}/>
-      </div>
-      <div className="mb-5">
-        <EditorText content={content} onChange={(newContent) => handleContentChange(newContent)} />
-      </div>
-      <button 
-        type="submit" 
-        className={`w-full px-4 py-2 rounded-md ${loading ? 'bg-gray-500 cursor-not-allowed' : 'bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'}`} 
-        disabled={loading}
-      >
-        {loading ? 'Publicando...' : 'Publicar'}
-      </button>
-    </form>
+          {loading ? 'Publicando...' : 'Publicar'}
+        </button>
+      </form>
+    </div>
   );
 }
+

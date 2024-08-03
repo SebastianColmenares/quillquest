@@ -96,7 +96,7 @@ const AuthModal = () => {
       <button onClick={() => toggleModal(false)} className="p-3 rounded bg-blue-500 text-white hover:bg-blue-600 transition duration-300">
         Iniciar Sesión
       </button>
-      <button onClick={() => toggleModal(true)} className="p-3 rounded bg-green-500 text-white hover:bg-green-600 transition duration-300 ml-2">
+      <button onClick={() => toggleModal(true)} className="p-3 rounded bg-teal-600 text-white hover:bg-teal-700 transition duration-300 ml-2">
         Registrarse
       </button>
 
