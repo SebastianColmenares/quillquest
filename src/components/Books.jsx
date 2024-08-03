@@ -10,10 +10,12 @@ export default function BookCard({ title, description, authorName, dateCreated, 
   return (
     <div className="flex items-center justify-center m-2">
       <div
-        className="w-80 h-96 p-6 bg-slate-800 hover:bg-slate-700 shadow-lg shadow-black rounded-2xl hover:scale-110 transition duration-300 overflow-hidden bg-cover bg-center"
+        className="relative w-80 h-96 p-6 bg-slate-800 shadow-lg shadow-black rounded-2xl overflow-hidden bg-cover bg-center transition duration-300 hover:scale-110"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div className="text-md bg-opacity-70 bg-gray-900 p-4 rounded-md">
+        <div className="absolute inset-0 bg-cyan-950 opacity-0 hover:opacity-50 transition duration-300"></div>
+
+        <div className="relative text-md bg-opacity-70 bg-gray-900 p-4 rounded-md">
           <div className="text-center mb-4">
             <div className={oswald.className}>
               <h1 className="text-2xl font-semibold leading-none text-white hover:text-indigo-600 transition duration-500 ease-in-out">
@@ -38,6 +40,7 @@ export default function BookCard({ title, description, authorName, dateCreated, 
     </div>
   );
 }
+
 
 
 
