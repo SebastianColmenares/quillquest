@@ -73,15 +73,16 @@ export default function NuevaEscritura() {
       </div>
       <div className="mb-5">
         <input type="text" id="genre" value={genres.join(', ')} onChange={handleGenreChange}
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Generos (Separalos con commas ",")' />
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Generos (Separalos con comas   " , ")' />
       </div>
       <div className="mb-5">
         <textarea value={description} onChange={handleDescriptionChange} rows="4"
           className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Sinopsis'></textarea>
       </div>
-      <div className="mb-5">
+      <div className="mt-1 block w-full px-4 shadow-inner text-[#a7a6a6] bg-[#222222] shadow-black py-3 rounded-md mb-5">
+        <p>Portada:</p>
         <input type="file" accept="image/*" onChange={convertToBase64}
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" />
+          />
       </div>
       <div className="mb-5">
         <EditorText content={content} onChange={(newContent) => handleContentChange(newContent)} />
