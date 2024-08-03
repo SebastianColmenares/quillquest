@@ -25,11 +25,6 @@ export default async function BookDetailPage({ params }) {
                         <p className="text-lg text-gray-600">Escrito por: <span className="font-semibold">{book?.authorName}</span></p>
                         <p className="text-lg text-gray-600">Género: <span className="font-semibold">{book?.genreName.join(', ')}</span></p>
                     </div>
-                    {book?.portada && (
-                        <div className="mb-4">
-                            <img src={book.portada} alt="Book Cover" className="w-full h-auto object-cover rounded-md" />
-                        </div>
-                    )}
                     <div id="bookContent" dangerouslySetInnerHTML={{ __html: book?.content }} className="prose max-w-none text-gray-300"></div>
                 </>
             ) : (
@@ -56,11 +51,6 @@ export default async function BookDetailPage({ params }) {
                         <p className="text-lg text-gray-600">Género: <span className="font-semibold">{book?.genreName.join(', ')}</span></p>
                         <p className="text-lg text-gray-600">Descripción: <span className="font-semibold">{book?.description}</span></p>
                     </div>
-                    {book?.portada && (
-                        <div className="mb-4">
-                            <img width={300} src={book.portada} alt="Portada" />
-                        </div>
-                    )}
                     <div id="bookContent" dangerouslySetInnerHTML={{ __html: book?.content }} className="prose max-w-none text-gray-300"></div>
                 </>
             )}
