@@ -73,7 +73,7 @@ export default function NuevaEscritura() {
       </div>
       <div className="mb-5">
         <input type="text" id="genre" value={genres.join(', ')} onChange={handleGenreChange}
-          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Genres (comma-separated)' />
+          className="mt-1 block w-full px-3 shadow-inner bg-[#222222] shadow-black py-2 rounded-md" placeholder='Generos (Separalos con commas ",")' />
       </div>
       <div className="mb-5">
         <textarea value={description} onChange={handleDescriptionChange} rows="4"
