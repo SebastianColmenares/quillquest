@@ -29,10 +29,10 @@ function MenuBar() {
   return (
     <>
       <button  type='button'
-        className="fixed transition-all duration-300 hover:scale-125 top-1/2 right-80 z-50 bg-indigo-600 hover:bg-indigo-500 text-white p-2 rounded-full h-24 focus:outline-none text-xl"
+        className="fixed transition-all duration-300 hover:scale-125 top-1/2 right-80 z-50 bg-indigo-600 hover:bg-indigo-500 text-white p-2 rounded-full h-12 focus:outline-none text-xl"
         onClick={handleOpenButtonClick}
       >
-        {isOpen ? '>>' : '<<'}
+        {isOpen ? '>>' : '<< Herramientas'}
       </button>
       <div className={`fixed top-0 right-0 h-full bg-[#1a1a1a] shadow-inner shadow-black transition-transform duration-300 z-40 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="control-group rounded-xl p-4 pt-60 w-64 h-full overflow-y-auto">
